@@ -52,6 +52,10 @@ extension ViewController: UITableViewDelegate {
         return CGFloat.popUpCardViewHeight
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        <#code#>
+    }
+
 }
 
 
