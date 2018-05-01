@@ -16,6 +16,7 @@
 		B910F6482097F0E800968C80 /* PopUpCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B910F6462097F0E800968C80 /* PopUpCardTableViewCell.xib */; };
 		B910F64A2097F0F300968C80 /* PopUpCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B910F6492097F0F300968C80 /* PopUpCardView.xib */; };
 		B910F64C2097F10500968C80 /* PopUpCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B910F64B2097F10500968C80 /* PopUpCardView.swift */; };
+		B910F6512097F61F00968C80 /* CGFloat+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B910F6502097F61F00968C80 /* CGFloat+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B910F6462097F0E800968C80 /* PopUpCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpCardTableViewCell.xib; sourceTree = "<group>"; };
 		B910F6492097F0F300968C80 /* PopUpCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpCardView.xib; sourceTree = "<group>"; };
 		B910F64B2097F10500968C80 /* PopUpCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCardView.swift; sourceTree = "<group>"; };
+		B910F6502097F61F00968C80 /* CGFloat+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				B910F62F2097F05400968C80 /* AppDelegate.swift */,
+				B910F64D2097F60900968C80 /* Extensions */,
 				B910F6422097F07000968C80 /* PopUpCardTableViewCell */,
 				B910F6412097F06200968C80 /* PopUpCardView */,
 				B910F6312097F05400968C80 /* ViewController.swift */,
@@ -90,6 +93,14 @@
 				B910F6462097F0E800968C80 /* PopUpCardTableViewCell.xib */,
 			);
 			path = PopUpCardTableViewCell;
+			sourceTree = "<group>";
+		};
+		B910F64D2097F60900968C80 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B910F6502097F61F00968C80 /* CGFloat+.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +181,7 @@
 				B910F6302097F05400968C80 /* AppDelegate.swift in Sources */,
 				B910F6472097F0E800968C80 /* PopUpCardTableViewCell.swift in Sources */,
 				B910F64C2097F10500968C80 /* PopUpCardView.swift in Sources */,
+				B910F6512097F61F00968C80 /* CGFloat+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
