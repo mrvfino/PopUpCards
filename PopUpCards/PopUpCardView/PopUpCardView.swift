@@ -53,6 +53,7 @@ class PopUpCardView: UIView {
     }
     
     private func additionalSetup() {
+        // Although the banner's height was statically set in the .xib, we set it here
         bannerHeight = CGFloat.popUpCardViewHeight
         clipsToBounds = true
     }
