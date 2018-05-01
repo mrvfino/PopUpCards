@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     
     let dummyTableViewData: [String] = ["1st Item", "2nd Item", "3rd Item"]
     
+    var storedFrame: CGRect?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initPopUpCardTableView()
@@ -29,7 +31,16 @@ class ViewController: UIViewController {
     }
     
     @objc func dummyViewTapGestureHandler(_ sender: UIGestureRecognizer) {
-        sender.view?.removeFromSuperview()
+        
+        let viewToShrink = sender.view!
+        viewToShrink.removeConstraints(viewToShrink.constraints)
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            viewToShrink.frame = self.storedFrame!
+        }) { (c) in
+            viewToShrink.removeFromSuperview()
+        }
+        
     }
 
 }
@@ -83,14 +94,12 @@ extension ViewController: UITableViewDelegate {
         dummyView.trailingAnchor.constraint(equalTo: window.trailingAnchor).isActive = true
         dummyView.bottomAnchor.constraint(equalTo: window.bottomAnchor).isActive = true
         
-//        UIView.animate(withDuration: 0.3) {
-//            window.layoutIfNeeded()
-//        }
-        
         UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.50, initialSpringVelocity: 0.10, options: .curveEaseInOut, animations: {
             window.layoutIfNeeded()
         }) { (c) in
         }
+        
+        storedFrame = convertedRect
         
     }
 

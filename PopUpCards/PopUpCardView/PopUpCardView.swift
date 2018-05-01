@@ -54,6 +54,7 @@ class PopUpCardView: UIView {
     
     private func additionalSetup() {
         bannerHeight = CGFloat.popUpCardViewHeight
+        clipsToBounds = true
     }
     
     private func viewFromNibForClass() -> UIView {
