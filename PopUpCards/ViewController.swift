@@ -66,7 +66,8 @@ extension ViewController: UITableViewDelegate {
         let convertedRect = cell.convert(cell.popUpCardView.frame, to: window)
         
         // 2. Create a dummy view on window, initializing it with the converted rect.
-        let dummyView = UIView(frame: convertedRect)
+        let dummyView = PopUpCardView(frame: convertedRect)//UIView(frame: convertedRect)
+        dummyView.title = dummyTableViewData[indexPath.row]
         dummyView.backgroundColor = UIColor.gray
         window.addSubview(dummyView)
         
@@ -75,8 +76,21 @@ extension ViewController: UITableViewDelegate {
         dummyView.addGestureRecognizer(tapGesture)
         
         // ANIMATION PART!:
+        dummyView.translatesAutoresizingMaskIntoConstraints = false
         
+        dummyView.topAnchor.constraint(equalTo: window.topAnchor).isActive = true
+        dummyView.leadingAnchor.constraint(equalTo: window.leadingAnchor).isActive = true
+        dummyView.trailingAnchor.constraint(equalTo: window.trailingAnchor).isActive = true
+        dummyView.bottomAnchor.constraint(equalTo: window.bottomAnchor).isActive = true
         
+//        UIView.animate(withDuration: 0.3) {
+//            window.layoutIfNeeded()
+//        }
+        
+        UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.50, initialSpringVelocity: 0.10, options: .curveEaseInOut, animations: {
+            window.layoutIfNeeded()
+        }) { (c) in
+        }
         
     }
 
