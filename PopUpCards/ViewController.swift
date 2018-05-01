@@ -27,6 +27,10 @@ class ViewController: UIViewController {
         let nib = UINib(nibName: "PopUpCardTableViewCell", bundle: nil)
         popUpCardTableView.register(nib, forCellReuseIdentifier: PopUpCardTableViewCell.identifier)
     }
+    
+    @objc func dummyViewTapGestureHandler(_ sender: UIGestureRecognizer) {
+        sender.view?.removeFromSuperview()
+    }
 
 }
 
@@ -38,6 +42,7 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PopUpCardTableViewCell.identifier, for: indexPath) as! PopUpCardTableViewCell
+        cell.selectionStyle = .none
         cell.popUpCardView.title = dummyTableViewData[indexPath.row]
         return cell
     }
@@ -51,7 +56,28 @@ extension ViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
+        let cell = tableView.cellForRow(at: indexPath) as! PopUpCardTableViewCell
+        makeCellPopOut(cell, indexPath: indexPath)
+    }
+    
+    func makeCellPopOut(_ cell: PopUpCardTableViewCell, indexPath: IndexPath) {
+        let window = UIApplication.shared.keyWindow!
+        // 1. Get the equivalent/converted rect of the cell's popUpCardView as if it is in the window
+        let convertedRect = cell.convert(cell.popUpCardView.frame, to: window)
+        
+        // 2. Create a dummy view on window, initializing it with the converted rect.
+        let dummyView = UIView(frame: convertedRect)
+        dummyView.backgroundColor = UIColor.gray
+        window.addSubview(dummyView)
+        
+        // 2.5 Add a gesture recognizer to it so that it can be easily removed when tapped.
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dummyViewTapGestureHandler(_:)))
+        dummyView.addGestureRecognizer(tapGesture)
+        
+        // ANIMATION PART!:
+        
+        
+        
     }
 
 }
