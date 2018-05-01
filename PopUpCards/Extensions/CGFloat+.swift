@@ -11,6 +11,6 @@ import UIKit
 
 extension CGFloat {
     
-    static var popUpCardViewHeight = UIScreen.main.bounds.height * 0.60
+    static var popUpCardViewHeight = UIScreen.main.bounds.height * 0.75
     
 }
