@@ -20,9 +20,7 @@ class ViewController: UIViewController {
     }
 
     func initPopUpCardTableView() {
-        
         popUpCardTableView.separatorStyle = .none
-        
         popUpCardTableView.dataSource = self
         popUpCardTableView.delegate = self
         
